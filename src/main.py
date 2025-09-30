@@ -2,6 +2,7 @@ from fastapi import FastAPI, APIRouter
 from books.router import book_router
 from admins.router import admin_router
 from database import init_db
+import uvicorn
 
 app = FastAPI(title="BookAPI", version="0.0.1", docs_url="/api/v1/docs")
 router = APIRouter(prefix="/api/v1")
@@ -21,3 +22,6 @@ async def startup_event():
 @app.on_event("shutdown")
 async def shutdown_event():
     print("App stoped!")
+
+if __name__ == "__main__":
+    uvicorn.run(app=app,host="0.0.0.0", port=8080, reload=True)

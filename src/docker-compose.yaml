@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1909
+      POSTGRES_PASSWORD: pro
       POSTGRES_DB: bookapi
     ports:
       - "5432:5432"
@@ -28,7 +28,7 @@ services:
       - database
       - redis
     environment:
-      - DATABASE_URL=postgresql://postgres:1909@postgres:5432/bookapi
+      - DATABASE_URL=postgresql+asyncpg://postgres:pro@database:5432/bookapi
       - REDIS_URL=redis://redis:6379/0
 
 
