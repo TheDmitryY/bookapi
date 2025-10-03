@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 RedisHost = os.getenv("REDIS_HOST")
-RedisPort = int(os.getenv("REDIS_PORT"))
+RedisPort = os.getenv("REDIS_PORT")
 
 redis_connection = redis.Redis(host=RedisHost, port=RedisPort, db=0)
 

@@ -1,0 +1,8 @@
+REDIS_HOST = "redis"
+REDIS_PORT = 6379
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "pro"
+POSTGRES_DB = "bookapi"
+POSTGRES_PORT = 5432
+POSTGRES_URL = "database"
+DATABASE_URLS = "postgresql+asyncpg://postgres:pro@postgres:5432/bookapi"
