@@ -7,9 +7,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv(f"DATABASE_URL")
+POSTGRES_USER = os.getenv("POSTGRES_USER")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+POSTGRES_DB = os.getenv("POSTGRES_DB")
+POSTGRES_PORT = int(os.getenv("POSTGRES_PORT"))
+POSTGRES_URL = os.getenv("POSTGRES_URL")
 
-engine = create_async_engine(DATABASE_URL, echo=True)
+DATABASE_URLS = f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_URL}:{POSTGRES_PORT}/{POSTGRES_DB}"
+
+engine = create_async_engine(DATABASE_URLS, echo=True)
 async_session = sessionmaker(
     engine, expire_on_commit=False, class_=AsyncSession
 )
